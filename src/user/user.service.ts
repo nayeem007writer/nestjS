@@ -11,4 +11,6 @@ import {
 } from "@nestjs/common";
 
 
-export class UserService {}
+export class UserService {
+  [x: string]: any;
+}
