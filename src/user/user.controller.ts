@@ -20,6 +20,18 @@ export class UserController {
 
     @Post()
     create(@Body() createUserDto:CreateUserDto) {
+        console.log(createUserDto);
         this.userService.create(createUserDto);
     }
+
+    @Get()
+    findAll() {
+      this.userService.findAll();
+    }
+
+    @Get()
+    findOne() {
+      this.userService.findOne();
+    }
+
 }

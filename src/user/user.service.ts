@@ -38,4 +38,30 @@ export class UserService {
         throw new HttpException(err, HttpStatus.BAD_REQUEST);
     }
   }
+
+public async findAll(): Promise<User[]> {
+  try {
+       
+    const users = await this.userModel.findAll();
+    console.log(users);
+    return users;
+  }
+  catch(err) {
+    throw new HttpException(err, HttpStatus.BAD_REQUEST);
+  }
+}
+public async findOne(userId: string): Promise<User> {
+  try {
+    const user = await this.userModel.findOne({
+      where: {
+            id: userId
+      }
+    })
+    return user;
+  }
+  catch(err) {
+    throw new HttpException(err, HttpStatus.BAD_REQUEST);
+  }
+
+}
 }
