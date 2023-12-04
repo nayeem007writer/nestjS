@@ -27,7 +27,4 @@ export class CreateUserDto {
   @MaxLength(60)
   password: string;
 
-  
-  @IsString({ each: true })
-  readonly roles?: string[];
 }
