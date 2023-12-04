@@ -57,7 +57,12 @@ public async findOne(userId: string): Promise<User> {
             id: userId
       }
     })
+
+    if (!user) {
+      throw new NotFoundException(`User #${userId} not found`);
+    }
     return user;
+
   }
   catch(err) {
     throw new HttpException(err, HttpStatus.BAD_REQUEST);
